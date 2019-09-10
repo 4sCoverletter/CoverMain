@@ -14,3 +14,7 @@
 	-각자 fork해서 작업 하던 내용 merge 하기
 	-conflict 발생시 알려주고 자신이 처리하기
 	-작업은 DEV에서 하기
+
+3.commit 설명은 구체적으로 적습니다.
+
+	-README.md 파일은 변경해도 commit 주석을 따로 하지 않아도 됩니다. (default 사용)
