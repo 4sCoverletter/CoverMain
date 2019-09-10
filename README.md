@@ -1,4 +1,6 @@
-### CoverProject
+#### CoverProject
+# 필독하세요!
+
 1.작업순서
 	
 	1. 4sCoverletter에서 자신의 저장소로 Fork하기!
