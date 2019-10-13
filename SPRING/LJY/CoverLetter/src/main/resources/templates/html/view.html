@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Stylish Portfolio - Start Bootstrap Template</title>
+
+  <!-- Bootstrap Core CSS -->
+  <!-- pitcher0303 -->
+  <link th:href="@{/css/LoginCss/sb-admin-2.css}" rel="stylesheet"/>
+  <!-- /pitcher0303 -->
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+  <!-- Custom Fonts -->
+  <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{/vendor/simple-line-icons/css/simple-line-icons.css}" rel="stylesheet"/>
+  
+  <!-- Custom CSS -->
+  <link th:href="@{/css/stylish-portfolio.css}" rel="stylesheet"/>
+  <!-- leejoy980 -->
+  <link th:href="@{/css/TeamCss/team.min.css}" rel="stylesheet"/>
+  <!-- /leejoy980 -->
+  <!--rhkdqhrehddl(css추가)-->
+  <link th:href="@{/css/InfoCss/info_style.min.css}" rel="stylesheet"/>
+  <link th:href="@{/css/InfoCss/animate.css}" rel="stylesheet"/>
+  <!-- /rhkdqhrehddl-->
+</head>
+<body id="page-top">
+
+  <!-- Header -->
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">SARAM-IT</h1>
+      <h3 class="mb-5">
+        <em>While 이력서+포트폴리오+디자인 == 커버레터 :</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Make CoverLetters</a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- About -->
+  
+      <!-- Team leejoy980-->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center" style="margin:50px 0px 50px 0px">
+          <h2 class="section-heading text-uppercase">Our SmartSW Team</h2>
+          <h3 class="section-subheading text-muted">우리 팀을 소개합니다!</h3>
+        </div>
+      </div>
+
+     <div class="row">
+
+        <div class="col-sm-3" th:each="member : ${member}">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="../img/team/1.jpg" alt="">
+            <h4 th:text="${member.name}"></h4>
+            <p class="text-muted">Lead Designer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" th:data-email="${member.naver}" style="cursor:pointer">
+					<i class="fab fa-neos"></i>
+				</a>
+              </li>
+              <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" th:data-email="${member.google}" style="cursor:pointer">
+                  <i class="fab fa-google"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/leejoy980" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ <!--Modal: modalPush-->
+ <!-- Button trigger modal-->
+  <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+  
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <h4 class="modal-platform" id="myModalLabel">Modal platform</h4>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fas fa-envelope fa-4x animated rotateIn mb-4"></i>
+		<h4 class="modal-email" id="myModalLabel2">Modal Email</h4>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancle</button>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  </div>
+  <!-- /Team leejoy980-->
+	<!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/stylish-portfolio.min.js"></script>
+  <!-- Team leejoy980-->
+  <script src="../js/TeamJS/teamTest.js"></script>
+  <script src="../js/TeamJS/TEST.js"></script>
+  <!-- /Team leejoy980-->
+  <!--rhkdqhrehddl(js추가)-->
+  <script src="../js/InfoJS/wow.min.js"></script>
+  <script src="../js/InfoJS/info.min.js"></script>
+  <!--/rhkdqhrehddl-->
+</body>
+</html>
