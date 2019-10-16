@@ -1,0 +1,13 @@
+.showcase .showcase-img {
+    min-height: 30rem;
+    background-size: cover;
+}
+
+
+.showcase .showcase-text {
+    padding: 7rem;
+}
+
+.showcase .showcase-text {
+    padding: 3rem;
+}
