@@ -10,6 +10,8 @@
   <meta name="author" content="">
 
   <title>Stylish Portfolio - Start Bootstrap Template</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
   <!-- Bootstrap Core CSS -->
   <!-- pitcher0303 -->
@@ -226,11 +228,11 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">SARAM-IT</h1>
+      <h1 class="mb-1">Stylish Portfolio</h1>
       <h3 class="mb-5">
-        <em>While 이력서+포트폴리오+디자인 == 커버레터 :</em>
+        <em>A Free Bootstrap Theme by Start Bootstrap</em>
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Make CoverLetters</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -241,24 +243,26 @@
   <section class="showcase" id="about">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background: url('../img/bg-showcase-1.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background-image: url('../img/bg-showcase-1.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text wow fadeInLeft">
-          <h2>Fully Responsive Design</h2>
-          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+          <h2>개발자는 코드로 말한다!!</h2>
+          <p class="lead mb-0">이 말에 걸맞게 기업들이 좋은 개발자를 판단하는데 있어서도 학벌이나 학점보다는 개발자의 역량을 중시하는 흐름으로 점점 변화해가고 있습니다.</p>
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img wow fadeInLeft" style="background: url('../img/bg-showcase-2.jpg');"></div>
+        <div class="col-lg-6 text-white showcase-img wow fadeInLeft" style="background-image: url('../img/bg-showcase-2.png');"></div>
         <div class="col-lg-6 my-auto showcase-text wow fadeInRight">
-          <h2>Updated For Bootstrap 4</h2>
-          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+          <h2>하지만 우리의 이력서는....?</h2>
+          <p class="lead mb-0">
+            자격증, 수상경험, 사회경험, 어학성적, etc...<br/>
+            이러한 것들로 어떻게 우리의 능력과 기술을 구체적으로 표현할수 있을까요....? </p>
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background: url('../img/bg-showcase-3.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background-image: url('../img/bg-showcase-3.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text wow fadeInLeft">
-          <h2>Easy to Use &amp; Customize</h2>
-          <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+          <h2>이제 Saram-IT으로 남들과는 차별화된 구직활동을 시작하세요!!</h2>
+          <p class="lead mb-0">기존의 이력서에서 보여줄수 없었던 프로젝트에 대한 상세한 설명을 덧붙임으로써 당신의 기술과 능력을 더욱 효과적으로 어필할수 있습니다.</p>
         </div>
       </div>
     </div>
@@ -314,6 +318,84 @@
       </div>
     </div>
   </section>
+
+  <!-- Callout -->
+  <section class="callout">
+    <div class="container text-center">
+      <h2 class="mx-auto mb-5">Welcome to
+        <em>your</em>
+        next website!</h2>
+      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Stationary</h2>
+                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="../img/portfolio-1.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Ice Cream</h2>
+                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="../img/portfolio-2.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Strawberries</h2>
+                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="../img/portfolio-3.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2>Workspace</h2>
+                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+              </span>
+            </span>
+            <img class="img-fluid" src="../img/portfolio-4.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Call to Action -->
+  <!--
+  <section class="content-section bg-primary text-white">
+    <div class="container text-center">
+      <h2 class="mb-4">The buttons below are impossible to resist...</h2>
+      <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
+      <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
+    </div>
+  </section>
+  -->
   
   <!-- Team leejoy980-->
   <section class="bg-light page-section" id="team">
@@ -324,103 +406,32 @@
           <h3 class="section-subheading text-muted">우리 팀을 소개합니다!</h3>
         </div>
       </div>
-      <div class="row">
-		<div class="col-sm-3">
+    <div id="teamrow" class="row">
+		  <div v-for="member in teamList" :key="member.name" class="col-sm-3">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="../img/team/1.jpg" alt="">
-            <h4>박 현찬</h4>
-            <p class="text-muted">Lead Designer</p>
+            <img class="mx-auto rounded-circle" :src="member.url" alt="">
+            <h4>{{member.name}}</h4>
+            <p class="text-muted">{{member.position}}</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" data-email="pitcher0303@naver.com" style="cursor:pointer">
+                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" :data-email="member.naver" style="cursor:pointer">
                   <i class="fab fa-neos"></i>
                  </a>
               </li>
               <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" data-email="pitcher0303@gmail.com" style="cursor:pointer">
+                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" :data-email="member.gmail" style="cursor:pointer">
                   <i class="fab fa-google"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://github.com/pitcher0303" target="_blank">
+                <a :href="member.git" target="_blank">
                   <i class="fab fa-github"></i>
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="../img/team/member2.jpg" alt="">
-            <h4>최 영석</h4>
-            <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" data-email="blackhawk737@naver.com" style="cursor:pointer">
-                  <i class="fab fa-neos"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" data-email="ghkseh123@gmail.com" style="cursor:pointer">
-                  <i class="fab fa-google"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/YeongseokChoi" target="_blank">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="../img/team/1.jpg" alt="">
-            <h4>이 원준</h4>
-            <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" data-email="rhkdqhrehddl@naver.com" style="cursor:pointer">
-                  <i class="fab fa-neos"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                 <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" data-email="rhkdqhrehddl@gmail.com" style="cursor:pointer">
-                  <i class="fab fa-google"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/rhkdqhrehddl" target="_blank">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="../img/team/1.jpg" alt="">
-            <h4>이 주영</h4>
-            <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Naver" data-email="ljoy1994@naver.com" style="cursor:pointer">
-					<i class="fab fa-neos"></i>
-				</a>
-              </li>
-              <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white" data-toggle="modal" data-target="#modalPush" data-platform="Google" data-email="leejoy1994@naver.com" style="cursor:pointer">
-                  <i class="fab fa-google"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/leejoy980" target="_blank">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
@@ -451,7 +462,7 @@
 
       <!--Footer-->
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancle</button>
       </div>
     </div>
     <!--/.Content-->
@@ -495,5 +506,23 @@
   <script src="../js/InfoJS/info.min.js"></script>
   <!--/rhkdqhrehddl-->
 </body>
-
+<script>
+  $.ajax({
+    url: "ajax",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    error : function(){
+        alert("통신실패!!!!");
+    },
+    success : function(data){
+        new Vue({
+          el: "#teamrow",
+          data: {
+            teamList: data
+          }
+        })
+    }
+  })
+</script>
 </html>
