@@ -126,7 +126,7 @@ h6 {
   transition: all 0.4s ease 0s;
   -webkit-transform: translateX(250px);
   transform: translateX(250px);
-  background: #1D809F;
+  background: #1c1c1f;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -206,7 +206,7 @@ h6 {
 
 .service-icon {
   background-color: #fff;
-  color: #1D809F;
+  color: #1c1c1f;
   height: 7rem;
   width: 7rem;
   display: block;
@@ -320,12 +320,12 @@ footer.footer .social-link {
 }
 
 footer.footer .social-link:hover {
-  background-color: #ff5500;
+  background-color: #31313c;
   text-decoration: none;
 }
 
 a {
-  color: #1D809F;
+  color: #1c1c1f;
 }
 
 a:hover, a:focus, a:active {
@@ -333,25 +333,25 @@ a:hover, a:focus, a:active {
 }
 
 .btn-primary {
-  background-color: #1D809F !important;
-  border-color: #1D809F !important;
+  background-color: #1c1c1f !important;
+  border-color: #1c1c1f !important;
   color: #fff !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #155d74 !important;
-  border-color: #155d74 !important;
+  background-color: #31313c !important;
+  border-color: #31313c !important;
 }
 
 .btn-secondary {
-  background-color: #ecb807 !important;
-  border-color: #ecb807 !important;
+  background-color: #1c1c1f !important;
+  border-color: #1c1c1f !important;
   color: #fff !important;
 }
 
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
-  background-color: #ba9106 !important;
-  border-color: #ba9106 !important;
+  background-color: #31313c !important;
+  border-color: #31313c !important;
 }
 
 .btn-dark {
@@ -365,11 +365,11 @@ a:hover, a:focus, a:active {
 }
 
 .bg-primary {
-  background-color: #1D809F !important;
+  background-color: #1c1c1f !important;
 }
 
 .text-primary {
-  color: #1D809F !important;
+  color: #1c1c1f !important;
 }
 
 .text-secondary {
