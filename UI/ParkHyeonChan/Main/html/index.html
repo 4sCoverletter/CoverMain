@@ -23,7 +23,112 @@
   
   <!-- Custom CSS -->
   <link href="../css/stylish-portfolio.css" rel="stylesheet">
+  <!-- leejoy980 -->
+  <link href="../css/TeamCss/team.min.css" rel="stylesheet">
+  <!-- /leejoy980 -->
+  <!--rhkdqhrehddl(css추가)-->
+  <link href="../css/InfoCss/info_style.min.css" rel="stylesheet">
+  <link href="../css/InfoCss/animate.css" rel="stylesheet">
+  <!-- /rhkdqhrehddl-->
 </head>
+
+
+<script language = "javascript">
+	window.onload=function() {
+		$.ajax({
+			url:"http://localhost:8080/member",
+			type:"GET",
+			cache:false,
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success:function(team_data){
+				team_data.teams.forEach(function(team){
+					//div 생성
+					var $section = $('<div/>', {
+						class : 'col-sm-3'
+					});
+					var $section2 = $('<div/>',{
+						class : 'team-member'
+					});
+					$section.append($section2);
+					//img, h4, p, ul 생성
+					var $img = $('<img/>', {
+						class : 'mx-auto rounded-circle',
+						src : team.imgsrc
+					});
+					var $h4 = $('<h4/>', {
+						text : team.name
+					});
+					var $p = $('<p/>', {
+						text : team.position
+					});
+					var $ul = $('<ul/>',{
+						class : 'list-inline social-buttons'
+					});
+					//section2에 결합
+					$section2.append($img).append($h4).append($p).append($ul);
+					
+					//ul안의 li-a-i, li-a-i, li-a-i 생성
+					//li-1
+					var $li = $('<li/>',{
+						class : 'list-inline-item'
+					});
+					$ul.append($li);
+					var $a = $('<a/>',{
+						class : 'social-link rounded-circle text-white',
+						'data-toggle' : 'modal',
+						'data-target' : '#modalPush',
+						'data-platform' : 'Naver',
+						'data-email' : team.n_email,
+						'style' : 'cursor:pointer'
+					});
+					$li.append($a);
+					var $i = $('<i/>',{
+						class : 'fab fa-neos'
+					});
+					$a.append($i);
+					//li-2
+					$li = $('<li/>',{
+						class : 'list-inline-item'
+					});
+					$ul.append($li);
+					$a = $('<a/>',{
+						class : 'social-link rounded-circle text-white',
+						'data-toggle' : 'modal',
+						'data-target' : '#modalPush',
+						'data-platform' : 'Gmail',
+						'data-email' : team.g_email,
+						'style' : 'cursor:pointer'
+					});
+					$li.append($a);
+					$i = $('<i/>',{
+						class : 'fab fa-google'
+					});
+					$a.append($i);
+					//li-3
+					$li = $('<li/>',{
+						class : 'list-inline-item'
+					});
+					$ul.append($li);
+					$a = $('<a/>',{
+						href : team.github,
+						target : '_blank'
+					});
+					$li.append($a);
+					$i = $('<i/>',{
+						class : 'fab fa-github'
+					});
+					$a.append($i);
+					
+					$('#TeamMemberTest').append($section);
+				});
+			},
+			error:function(request, status, error) {
+				alert("failed");
+			}
+		});
+	}
+</script>
 
 <body id="page-top">
 
@@ -192,7 +297,7 @@
         <a class="js-scroll-trigger" href="#about">Info.</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#portfolio">Teams</a>
+        <a class="js-scroll-trigger" href="#team">Teams</a>
       </li>
     </ul>
   </nav>
@@ -219,28 +324,44 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">Stylish Portfolio</h1>
+      <h1 class="mb-1">SARAM-IT</h1>
       <h3 class="mb-5">
-        <em>A Free Bootstrap Theme by Start Bootstrap</em>
+        <em>While 이력서+포트폴리오+디자인 == 커버레터 :</em>
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Make CoverLetters</a>
     </div>
     <div class="overlay"></div>
   </header>
 
   <!-- About -->
-  <section class="content-section bg-light" id="about">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-          <p class="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
-            <a href="https://unsplash.com/">Unsplash</a>!</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
+  <!--rhkdqhrehddl-->
+  <!--Information Section-->
+  <section class="showcase" id="about">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background-image: url('../img/bg-showcase-1.jpg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text wow fadeInLeft">
+          <h2>Fully Responsive Design</h2>
+          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 text-white showcase-img wow fadeInLeft" style="background-image: url('../img/bg-showcase-2.jpg');"></div>
+        <div class="col-lg-6 my-auto showcase-text wow fadeInRight">
+          <h2>Updated For Bootstrap 4</h2>
+          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img wow fadeInRight" style="background-image: url('../img/bg-showcase-3.jpg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text wow fadeInLeft">
+          <h2>Easy to Use &amp; Customize</h2>
+          <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
         </div>
       </div>
     </div>
   </section>
+  <!--/rhkdqhrehddl-->
 
   <!-- Services -->
   <section class="content-section bg-primary text-white text-center" id="services">
@@ -291,122 +412,73 @@
       </div>
     </div>
   </section>
-
-  <!-- Callout -->
-  <section class="callout">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5">Welcome to
-        <em>your</em>
-        next website!</h2>
-      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="content-section" id="portfolio">
-  <!--
+  
+  <!-- Team leejoy980-->
+  <section class="bg-light page-section" id="team">
     <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Recent Projects</h2>
+      <div class="row">
+        <div class="col-lg-12 text-center" style="margin:50px 0px 50px 0px">
+          <h2 class="section-heading text-uppercase">Our SmartSW Team</h2>
+          <h3 class="section-subheading text-muted">우리 팀을 소개합니다!</h3>
+        </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
-            <span class="caption">
-              <span class="caption-content">
-                <h2>Stationary</h2>
-                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-              </span>
-            </span>
-            <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
-            <span class="caption">
-              <span class="caption-content">
-                <h2>Ice Cream</h2>
-                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-              </span>
-            </span>
-            <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
-            <span class="caption">
-              <span class="caption-content">
-                <h2>Strawberries</h2>
-                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-              </span>
-            </span>
-            <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
-            <span class="caption">
-              <span class="caption-content">
-                <h2>Workspace</h2>
-                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-              </span>
-            </span>
-            <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
-          </a>
+      <div class="row" id="TeamMemberTest">
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
         </div>
       </div>
     </div>
-	-->
   </section>
   
+ <!--Modal: modalPush-->
+ <!-- Button trigger modal-->
+  <div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
   
-  <!-- Call to Action -->
-  <!--
-  <section class="content-section bg-primary text-white">
-    <div class="container text-center">
-      <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-      <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
-      <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <h4 class="modal-platform" id="myModalLabel">Modal platform</h4>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fas fa-envelope fa-4x animated rotateIn mb-4"></i>
+		<h4 class="modal-email" id="myModalLabel2">Modal Email</h4>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancle</button>
+      </div>
     </div>
-  </section>
-  -->
-  
-  <!-- Map -->
+    <!--/.Content-->
+  </div>
+  </div>
+  <!-- /Team leejoy980-->
   
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-facebook"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-twitter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="#">
+          <a class="social-link rounded-circle text-white" href="https://github.com/4sCoverletter/CoverMain.git" target="_blank">
             <i class="icon-social-github"></i>
           </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
+      <p class="text-muted small mb-0">Copyright &copy; 4sCoverLetters 2019</p>
     </div>
   </footer>
-  <!-- pitcher0303 -->
-  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-  <!-- /pitcher0303 -->
+  
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -416,7 +488,13 @@
 
   <!-- Custom scripts for this template -->
   <script src="../js/stylish-portfolio.min.js"></script>
-
+  <!-- Team leejoy980-->
+  <script src="../js/TeamJS/team.js"></script>
+  <!-- /Team leejoy980-->
+  <!--rhkdqhrehddl(js추가)-->
+  <script src="../js/InfoJS/wow.min.js"></script>
+  <script src="../js/InfoJS/info.min.js"></script>
+  <!--/rhkdqhrehddl-->
 </body>
 
 </html>
