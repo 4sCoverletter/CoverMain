@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coverletter.main.Data.Members;
-import com.coverletter.main.Data.TeamMember;
+import com.coverletter.main.data.Members;
+import com.coverletter.main.data.TeamMember;
 
 @CrossOrigin
 @RestController
