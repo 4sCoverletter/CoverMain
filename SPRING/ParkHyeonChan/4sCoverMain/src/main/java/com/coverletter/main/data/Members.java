@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 public class Members {
 	private int count;
 	private ArrayList<TeamMember> teams;
+	public Members() {
+		
+	}
 	public int getCount() {
 		return count;
 	}
