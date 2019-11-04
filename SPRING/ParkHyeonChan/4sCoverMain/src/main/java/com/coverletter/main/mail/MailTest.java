@@ -9,12 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MailTest {
+	/*
 	@Autowired public JavaMailSender emailSender;
 	
 	@RequestMapping(value = "/sendMail")
 	public ModelAndView sendMail(ModelAndView mav) {
 
 		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setFrom("pitcher0303@naver.com");
 		msg.setTo("pitcher0303@gmail.com");
 		msg.setSubject("메일 보내기 테스트");
 		msg.setText("첫번째 메일 테스트");
@@ -26,4 +28,5 @@ public class MailTest {
 		mav.setViewName("index.html");
 		return mav;
 	}
+	*/
 }
