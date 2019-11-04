@@ -2,9 +2,7 @@ package com.tuyano.springboot;
 
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.simple.JSONArray;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,80 +24,64 @@ public class HomeController {
         return "html/index";
     }
     
+    @RequestMapping("/CoverLetter")
+    public String CoverLetter(Model model){
+        model.addAttribute("message","Hello Spring Boot thymeleaf");
+        return "html/CoverLetter/CoverLetter";
+    }
+    
     @RequestMapping("/view")
     public String view(Model model){
     	
-    	memberVO member1 = new memberVO();
-    	member1.setGit("git1");
-    	member1.setGoogle("googlo1");
-    	member1.setName("이름1");
-    	member1.setNaver("naver1");
-    	
-    	memberVO member2 = new memberVO();
-    	member2.setGit("git2");
-    	member2.setGoogle("googlo2");
-    	member2.setName("이름2");
-    	member2.setNaver("naver2");
-    	
-    	memberVO member3 = new memberVO();
-    	member3.setGit("git3");
-    	member3.setGoogle("googlo3");
-    	member3.setName("이름3");
-    	member3.setNaver("naver3");
-    	
-    	memberVO member4 = new memberVO();
-    	member4.setGit("git4");
-    	member4.setGoogle("googlo4");
-    	member4.setName("이름4");
-    	member4.setNaver("naver4");
-    	
-    	ArrayList<memberVO> member = new ArrayList<memberVO>();
-    	member.add(member1);
-    	member.add(member2);
-    	member.add(member3);
-    	member.add(member4);
-		
-        model.addAttribute("member", member);
         
-        return "html/view";
+        return "html/index";
     }
     
-    @ResponseBody
-	@RequestMapping(value="/join")
-	public Object join() {
-    	HashMap<String, Object> map = new HashMap<String, Object>();
+    @SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value="/ajax")
+	public JSONArray join() {
     	
-    	memberVO member1 = new memberVO();
-    	member1.setGit("git1");
-    	member1.setGoogle("googlo1");
-    	member1.setName("이름1");
-    	member1.setNaver("naver1");
-    	
-    	memberVO member2 = new memberVO();
-    	member2.setGit("git2");
-    	member2.setGoogle("googlo2");
-    	member2.setName("이름2");
-    	member2.setNaver("naver2");
-    	
-    	memberVO member3 = new memberVO();
-    	member3.setGit("git3");
-    	member3.setGoogle("googlo3");
-    	member3.setName("이름3");
-    	member3.setNaver("naver3");
-    	
-    	memberVO member4 = new memberVO();
-    	member3.setGit("git4");
-    	member3.setGoogle("googlo4");
-    	member3.setName("이름4");
-    	member3.setNaver("naver4");
-    	
-    	
-    	
-		map.put("member1", member1);
-		map.put("member2", member2);
-		map.put("member3", member3);
-		map.put("member4", member4);
+    	String[] name_arr = {"박 현찬", "최 영석", "이 원준", "이 주영"};
+		String[] naver_arr = {"pitcher0303@naver.com", "blackhawk737@naver.com", "rhkdqhrehddl@naver.com", "ljoy1994@naver.com"};
+		String[] google_arr = {"pitcher0303@gmail.com", "ghkseh123@gmail.com", "rhkdqhrehddl@gmail.com", "leejoy1994@naver.com"};
+		String[] git_arr = {"https://github.com/pitcher0303", "https://github.com/YeongseokChoi", "https://github.com/rhkdqhrehddl", "https://github.com/leejoy980"};
 		
-		return map;
+		JSONArray jsonArr = new JSONArray();
+		for(int i = 0; i < name_arr.length; i++) {
+			memberVO vo = new memberVO();
+			vo.setName(name_arr[i]);
+			vo.setNaver(naver_arr[i]);
+			vo.setGoogle(google_arr[i]);
+			vo.setGit(git_arr[i]);
+			vo.setPosition("Lead Designer");
+			vo.setUrl("../img/team/member2.jpg");
+			jsonArr.add(vo);
+		}
+		return jsonArr;
+    }
+    
+    @SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value="/Portfolio")
+	public JSONArray Portfolio() {
+    	
+    	String[] name_arr = {"박 현찬", "최 영석", "이 원준", "이 주영"};
+		String[] naver_arr = {"pitcher0303@naver.com", "blackhawk737@naver.com", "rhkdqhrehddl@naver.com", "ljoy1994@naver.com"};
+		String[] google_arr = {"pitcher0303@gmail.com", "ghkseh123@gmail.com", "rhkdqhrehddl@gmail.com", "leejoy1994@naver.com"};
+		String[] git_arr = {"https://github.com/pitcher0303", "https://github.com/YeongseokChoi", "https://github.com/rhkdqhrehddl", "https://github.com/leejoy980"};
+		
+		JSONArray jsonArr = new JSONArray();
+		for(int i = 0; i < name_arr.length; i++) {
+			memberVO vo = new memberVO();
+			vo.setName(name_arr[i]);
+			vo.setNaver(naver_arr[i]);
+			vo.setGoogle(google_arr[i]);
+			vo.setGit(git_arr[i]);
+			vo.setPosition("Lead Designer");
+			vo.setUrl("../img/team/member2.jpg");
+			jsonArr.add(vo);
+		}
+		return jsonArr;
     }
 }

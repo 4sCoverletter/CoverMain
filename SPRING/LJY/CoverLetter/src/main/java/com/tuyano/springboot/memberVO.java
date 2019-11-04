@@ -5,12 +5,26 @@ public class memberVO {
 	private String Naver;
 	private String Google;
 	private String Git;
+	private String Position;
+	private String Url;
 	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPosition() {
+		return Position;
+	}
+	public String getUrl() {
+		return Url;
+	}
+	public void setUrl(String url) {
+		Url = url;
+	}
+	public void setPosition(String position) {
+		Position = position;
 	}
 	public String getNaver() {
 		return Naver;
