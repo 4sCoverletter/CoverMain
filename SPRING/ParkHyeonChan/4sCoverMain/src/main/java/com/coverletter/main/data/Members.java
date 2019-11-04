@@ -2,6 +2,9 @@ package com.coverletter.main.data;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Members {
 	private int count;
 	private ArrayList<TeamMember> teams;

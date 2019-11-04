@@ -1,5 +1,8 @@
 package com.coverletter.main.data;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class TeamMember {
 	private String name;
 	private String n_email;
