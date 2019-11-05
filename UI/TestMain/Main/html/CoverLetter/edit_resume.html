@@ -273,23 +273,75 @@
         <div class="resume-edit-div">
           <div class="resume-div">
               <form>
-                  <div class="edit-div">
-                      <div>
+                  <div>
                         <h3 class="normal-text">
                             기본정보
                         </h3>
+                      <div class="edit-div">
                         <div style="padding:0 50px 25px;">
-                            <div class="normal-text input-title" style="display:inline">
+                            <div class="normal-text input-title" style="display:inline;">
                                 이름
                                 <span class="point">필수</span>
                             </div>
-                            <input type="text" class="form-control bg-light border-0 small">
-                            <select name="job">
-                                <option value="">직업선택</option>
-                                <option value="학생">학생</option>
-                                <option value="회사원">회사원</option>
-                                <option value="기타">기타</option>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary dropdown-toggle" name="job">ㄴ
+                                <option value="학생">구직준비중(재학생)</option>
+                                <option value="회사원">구직중</option>
                             </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                생년월일
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="sex">
+                                <option value="학생">남</option>
+                                <option value="회사원">여</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                이메일
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                핸드폰
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                전화번호
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                주소
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                                <input type="text" class="form-control small" style="margin:15px 0px; width:600px; overflow:visible;">
+                            </div>
+                        </div>
+                        <div class="photo_div">
+                            <a>사진 추가</a>
                         </div>
                     </div>
                   </div>
