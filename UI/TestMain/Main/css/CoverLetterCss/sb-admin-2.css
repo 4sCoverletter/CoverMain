@@ -213,9 +213,18 @@ svg {
   vertical-align: middle;
 }
 
+/*rhkdqhrehddl*/
 table {
   border-collapse: collapse;
+  margin: 0 auto;
+  width: 1000px;
 }
+
+table th, table td {
+  border: 1px solid #fff;
+  padding: 10px;
+}
+/*!rhkdqhrehddl*/
 
 caption {
   padding-top: 0.75rem;
@@ -225,9 +234,14 @@ caption {
   caption-side: bottom;
 }
 
+/*rhkdqhrehddl*/
 th {
-  text-align: inherit;
+  height: 50px;
+  background-color: #31313c;
+  font-size: 20px;
+  text-align: center;
 }
+/*!rhkdqhrehddl*/
 
 label {
   display: inline-block;
@@ -12059,6 +12073,7 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
 
+/*rhkdqhrehddl*/
 .normal-text {
   color: #fff;
 }
@@ -12070,3 +12085,10 @@ body.sidebar-toggled footer.sticky-footer {
 .btn-hover:hover{
   background-color: #000000
 }
+
+.resume-div {
+  width: 1000px;
+  position: relative;
+  margin: auto;
+}
+/*!rhkdqhrehddl*/

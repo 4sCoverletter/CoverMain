@@ -10,6 +10,9 @@
   <meta name="author" content="">
 
   <title>SB Admin 2 - Dashboard</title>
+  <!--rhkdqhrehddl-->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!--/rhkdqhrehddl-->
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -267,7 +270,7 @@
 		
         <!-- /.container-fluid -->
         <!-- rhkdqhrehddl -->
-        <div>
+        <div class="resume-div">
           <div>
             <h2 class="normal-text">이력서 관리</h2>
             <ul>
@@ -284,20 +287,30 @@
               <h1 class="h3 mb-0 normal-text">내 이력서 확인</h1>
               <a href="edit_resume.html" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover"><i class="fas fa-plus"></i>이력서 추가</a>
             </div>
-            <table class="normal-text">
+            <table id="resume_table" class="normal-text">
+              <thead>
                 <tr>
-                  <th>이력서 제목</th>
+                  <th scope="col">이력서 제목</th>
                 </tr>
-                <td>
-                  <label>
-                    <input type="radio"/>
-                    <span>이력서 제목</span>
-                  </label>
-                  <span>
-                    <span>날짜</span>>
-                    <a>등록</a>
-                  </span>
-                </td>
+              </thead>
+              <tbody>
+                <tr v-for="resume in resumeList" :key="resume.id">
+                  <td>
+                    <label>
+                      <span>
+                        <a>
+                          {{resume.name}}
+                        </a>
+                      </span>
+                    </label>
+                    <span style="float:right;">
+                      <span style="margin-right:15px; font-size:13px;">{{resume.updated_date}}</span>
+                      <a class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover">수정</a>
+                      <a class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover">삭제</a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
               </table>
           </div>
         </div>
@@ -357,5 +370,27 @@
   <script src="../../js/CoverLetterJS/sb-admin-2.min.js"></script>
 
 </body>
+
+<!--rhkdqhrehddl-->
+<script>
+  $.ajax({
+    url: "http://localhost:8888/resume/select",
+    type: "POST",
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    error : function(){
+        alert("통신실패!!!!");
+    },
+    success : function(data){
+        new Vue({
+          el: "#resume_table",
+          data: {
+            resumeList: data
+          }
+        })
+    }
+  })
+</script>
+<!--/rhkdqhrehddl-->
 
 </html>
