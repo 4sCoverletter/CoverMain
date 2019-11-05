@@ -12091,4 +12091,28 @@ body.sidebar-toggled footer.sticky-footer {
   position: relative;
   margin: auto;
 }
+
+.resume-edit-div {
+  width: 1260px;
+  position: relative;
+  margin: auto;
+}
+
+.point {
+  color: #fc0038;
+  font-size: 12px;
+  letter-spacing: -1px;
+}
+
+.edit-div{
+  background-color: #31313c;
+}
+
+.input-title {
+  float: left;
+  width: 150px;
+  font-size: 16px;
+  letter-spacing: -1px;
+  line-height: 21px;
+}
 /*!rhkdqhrehddl*/
