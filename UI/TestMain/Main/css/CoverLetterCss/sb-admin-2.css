@@ -12093,13 +12093,11 @@ body.sidebar-toggled footer.sticky-footer {
 .resume-div {
   width: 1000px;
   position: relative;
-  margin: auto;
 }
 
 .resume-edit-div {
   width: 1260px;
   position: relative;
-  margin: auto;
 }
 
 .point {
@@ -12125,7 +12123,7 @@ body.sidebar-toggled footer.sticky-footer {
   display: inline-block;
 }
 
-.photo_div{
+#photo_div{
   position: absolute;
   top: 50px;
   right: 50px;
@@ -12136,5 +12134,75 @@ body.sidebar-toggled footer.sticky-footer {
   box-sizing: border-box;
   text-align: center;
   background-color: #fff;
+  display:table;
+} 
+
+#photo_div:link, #photo_div:visited, #photo_div:active, #photo_div:hover{
+  text-decoration:none;
+  color:#31313c;
+}
+
+input[id="highschool"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin: 0px 5px -4px 9px;
+}
+input[id="highschool"]:checked + label {
+  background-color: #31313c;
+}
+input[id="highschool"] {
+  display: none;
+}
+
+.school-text-div{
+  width: 180px;
+  display: inline-block;
+  margin-right: -10px;
+}
+
+.txt_period {
+  padding: 15px 0 0;
+  width: 56px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 21px;
+  margin-left:-10px;
+  text-align: center;
+}
+
+#right-side-div {
+  float: right;
+  width: 260px;
+}
+
+.right-inner-div {
+  position: fixed;
+  top: 75px;
+  right: auto;
+  margin-left:15px;
+}
+
+.optional_list {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+#additional_div1, #additional_div2, #additional_div3, #additional_div4 {
+  display: none;
+}
+
+.side_factor:link, .side_factor:visited, .side_factor:active, .side_factor:hover{
+  text-decoration:none;
+  color:#fff;
+}
+
+.list_line {
+  margin: 10px 0px;
 }
 /*!rhkdqhrehddl*/
