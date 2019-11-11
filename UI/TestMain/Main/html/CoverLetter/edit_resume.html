@@ -273,27 +273,273 @@
         <div class="resume-edit-div">
           <div class="resume-div">
               <form>
-                  <div class="edit-div">
-                      <div>
-                        <h3 class="normal-text">
-                            기본정보
-                        </h3>
+                  <div id="info_div">
+                      <h3 class="normal-text">기본정보</h3>
+                      <div class="edit-div">
                         <div style="padding:0 50px 25px;">
-                            <div class="normal-text input-title" style="display:inline">
+                            <div class="normal-text input-title" style="display:inline;">
                                 이름
                                 <span class="point">필수</span>
                             </div>
-                            <input type="text" class="form-control bg-light border-0 small">
-                            <select name="job">
-                                <option value="">직업선택</option>
-                                <option value="학생">학생</option>
-                                <option value="회사원">회사원</option>
-                                <option value="기타">기타</option>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary dropdown-toggle" name="job">
+                                <option value="">구직상태 선택</option>
+                                <option value="student">구직준비중(재학생)</option>
+                                <option value="graduate">구직중</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                생년월일
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="sex">
+                                <option value="">성별</option>
+                                <option value="male">남</option>
+                                <option value="female">여</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                이메일
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                핸드폰
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                전화번호
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                주소
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                                <input type="text" class="form-control small" style="margin:15px 0px; width:600px; overflow:visible;">
+                            </div>
+                        </div>
+                        <div href="#" id="photo_div" @click="getPhoto()">
+                            <div id="default_div" style="display:table-cell; vertical-align:middle;">
+                                사진 추가
+                                <input type="file" id="input_img" style="width: 0; height: 0;"/>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <br/>
+                  <div id="edu_div">
+                      <div id="education_head_div">
+                        <h3 class="normal-text" style="display:inline;">학력사항</h3>
+                        <select class="btn btn-secondary" name="school_start" style="float:right; margin:-10px 10px 0px 10px;" @change="getEducation()">
+                            <option value="under_highschool">고등학교 졸업</option>
+                            <option value="over_highschool">대학·대학원 이상 졸업</option>
+                        </select>
+                        <span class="normal-text" style="float:right;">최종학력</span>
+                      </div>
+                      <div class="edit-div">
+                        <h4 class="normal-text" style="padding:20px 50px;">고등학교</h4>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                학교명
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                            </div>
+                            <input type="checkbox" id="highschool">
+                            <label for="highschool"></label>
+                            <span class="normal-text">대입 검정고시</span>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                전공계열
+                                <span class="point">필수</span>
+                            </div>
+                            <select class="btn btn-secondary" name="sex" style="width:300px; margin-left:0px;">
+                                <option value="">전공계열 선택</option>
+                                <option value="normal_m">문과계열</option>
+                                <option value="normal_i">이과계열</option>
+                                <option value="professional">전문(실업)계</option>
+                                <option value="artist">예체능계</option>
+                                <option value="meister">특성화/마이스터고</option>
+                                <option value="special">특수목적고</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                재학기간
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="school-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="school_start">
+                                <option value="admission">입학</option>
+                                <option value="transfer">편입</option>
+                            </select>
+                            <span class="txt_period" style="display:inline-block;">-</span>
+                            <div class="school-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="school_start">
+                                <option value="admission">졸업</option>
+                                <option value="attend">재학중</option>
+                                <option value="noattend">휴학중</option>
+                                <option value="completion">수료</option>
+                                <option value="dropout">중퇴</option>
+                                <option value="dropschool">자퇴</option>
+                                <option value="expected">졸업예정</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="hidden_div" class="edit-div" style="display:none">
+                        <h4 class="normal-text" style="padding:20px 50px;">대학·대학원</h4>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                대학
+                                <span class="point">필수</span>
+                            </div>
+                            <select class="btn btn-secondary" name="sex" style="width:300px; margin-left:0px;">
+                                <option value="college">대학(2,3년)</option>
+                                <option value="university">대학교(4년)</option>
+                                <option value="master">대학원(석사)</option>
+                                <option value="doctor">대학원(박사)</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                학교명
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                학과
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="edit-text-div">
+                                    <input type="text" class="form-control small">
+                            </div>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                재학기간
+                                <span class="point">필수</span>
+                            </div>
+                            <div class="school-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="school_start">
+                                <option value="admission">입학</option>
+                                <option value="transfer">편입</option>
+                            </select>
+                            <span class="txt_period" style="display:inline-block;">-</span>
+                            <div class="school-text-div">
+                                <input type="date" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="school_start">
+                                <option value="admission">졸업</option>
+                                <option value="attend">재학중</option>
+                                <option value="noattend">휴학중</option>
+                                <option value="completion">수료</option>
+                                <option value="dropout">중퇴</option>
+                                <option value="dropschool">자퇴</option>
+                                <option value="expected">졸업예정</option>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                주/야간
+                            </div>
+                            <select class="btn btn-secondary" name="sex" style="width:300px; margin-left:0px;">
+                                <option value="day">주간</option>
+                                <option value="night">야간</option>>
+                            </select>
+                        </div>
+                        <div style="padding:0 50px 25px;">
+                            <div class="normal-text input-title" style="display:inline;">
+                                학점
+                            </div>
+                            <div class="edit-text-div">
+                                <input type="text" class="form-control small">
+                            </div>
+                            <select class="btn btn-secondary" name="sex">
+                                <option value="">기준학점</option>
+                                <option value="4.0">4.0</option>
+                                <option value="4.3">4.3</option>
+                                <option value="4.5">4.5</option>
+                                <option value="5.0">5.0</option>
+                                <option value="7.0">7.0</option>
+                                <option value="100">100</option>
                             </select>
                         </div>
                     </div>
                   </div>
+                  <br/>
+                  <div id="additional_div1">
+                        <h3 class="normal-text">대외활동</h3>
+                        <div class="edit-div normal_text">대외활동</div>
+                  </div>
+                  <br/>
+                  <div id="additional_div2">
+                        <h3 class="normal-text">자격증/어학/수상내역</h3>
+                        <div class="edit-div normal_text">자격증/어학/수상내역</div>
+                  </div>
+                  <br/>
+                  <div id="additional_div3">
+                        <h3 class="normal-text">보유기술 및 능력</h3>
+                        <div class="edit-div normal_text">보유기술 및 능력</div>
+                  </div>
+                  <br/>
+                  <div id="additional_div4">
+                        <h3 class="normal-text">취업 우대사항</h3>
+                        <div class="edit-div normal_text">취업 우대사항</div>
+                  </div>
               </form>
+          </div>
+          <div id="right-side-div">
+            <div class="right-inner-div" style="width:210px">
+                <h4 class="normal-text">이력서 항목</h4>
+                <ul id="factor_list" class="optional_list">
+                    <li class="list_line"><a href="#info_div" class="side_factor">기본정보<span class="point" style="margin-left:5px">필수</span></a></li>
+                    <li class="list_line"><a href="#edu_div" class="side_factor">학력사항<span class="point" style="margin-left:5px">필수</span></a></li>
+                    <li class="list_line"><a href="#additional_div1" class="side_factor" @click="toggleDiv(0)">대외활동
+                        <span id="li_span1" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover" style="float:right">추가</span></a></li>
+                    <li class="list_line"><a href="#additional_div2" class="side_factor" @click="toggleDiv(1)">자격증/어학/수상내역
+                        <span id="li_span2" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover" style="float:right">추가</span></a></li>
+                    <li class="list_line"><a href="#additional_div3" class="side_factor" @click="toggleDiv(2)">보유기술 및 능력
+                        <span id="li_span3" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover" style="float:right">추가</span></a></li>
+                    <li class="list_line"><a href="#additional_div4" class="side_factor" @click="toggleDiv(3)">취업 우대사항
+                        <span id="li_span4" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover" style="float:right">추가</span>
+                    </a></li>
+                </ul>
+            </div>
           </div>
         </div>
         <!-- /rhkdqhrehddl -->
@@ -355,7 +601,78 @@
 
 <!--rhkdqhrehddl-->
 <script>
-  
+    new Vue({
+        el: "#photo_div",
+        methods: {
+            getPhoto: function() {
+                $("input:file").click();
+            }
+        }
+    })
+
+    new Vue({
+        el: "#education_head_div",
+        methods: {
+            getEducation: function() {
+                if($("select[name=school_start]").val() === 'over_highschool')
+                    $("#hidden_div").attr("style", "display:block");
+                else
+                    $("#hidden_div").attr("style", "display:none");
+            }
+        }
+    })
+
+    new Vue({
+        el: "#factor_list",
+        data: {
+            flag_arr: [false, false, false, false]
+        },
+        methods: {
+            toggleDiv: function(num){
+                this.flag_arr[num] = !this.flag_arr[num]
+                if(this.flag_arr[num]){
+                    $('#additional_div' + ++num).attr('style', "display:block")
+                    $('#li_span' + num).text('제거')
+                }
+                else{
+                    $('#additional_div' + ++num).attr('style', "display:none")
+                    $('#li_span' + num).text('추가')
+                }
+            }
+        }
+    })
+
+    var sel_file;
+    var is_photo = false;
+
+    $(document).ready(function() {
+    	$('#input_img').on("change", handleImgFileSelect);
+    });
+
+    function handleImgFileSelect(e) {
+    	var files = e.target.files;
+    	var filesArr = Array.prototype.slice.call(files);
+    	
+    	filesArr.forEach(function(f) {
+    		if(!f.type.match("image.*")){
+    			alert("확장자는 이미지 확장자만 가능합니다.");
+    			return;
+    		}
+    		sel_file = f;
+    		
+    		var reader = new FileReader();
+    		reader.onload = function(e) {
+                if(!is_photo){
+                    $("#default_div").attr("style", "display:none;")
+                    $("#photo_div").append("<img id=\"photo_image\" src=\"" + e.target.result + "\" style=\"width: inherit;\"/>");
+                    is_photo = true;
+                } else {
+    			    $("#photo_image").attr('src', e.target.result);
+                }
+    		}
+    		reader.readAsDataURL(f);
+    	})
+    }
 </script>
 <!--/rhkdqhrehddl-->
 

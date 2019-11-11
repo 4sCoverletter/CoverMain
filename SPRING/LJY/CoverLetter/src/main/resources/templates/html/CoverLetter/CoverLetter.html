@@ -12,12 +12,14 @@
   <title>SB Admin 2 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../css/CoverLetterCss/sb-admin-2.min.css?after" rel="stylesheet">
-  <link href="../css/stylish-portfolio.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link href="css/CoverLetterCss/sb-admin-2.min.css?after" rel="stylesheet">
+  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+  
 
 </head>
 
@@ -64,31 +66,6 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-	  
-	  <script language = "javascript">
-	window.onload=function() {
-	var header = document.getElementById('Portfolio'); 
-		header.onclick = function(){
-		$.ajax({
-			url:"http://localhost:8080/Portfolio",
-			type:"GET",
-			cache:false,
-			dataType:"json",
-			contentType:"application/json; charset=UTF-8",
-			success:function(team_data){
-				$("#content").html(
-			"<section class=\"content-section\" id=\"portfolio\"> <div class=\"container\"> <div class=\"content-section-heading text-center\"> <h3 class=\"text-secondary mb-0\">Portfolio</h3> <h2 class=\"mb-5\">Recent Projects</h2> </div> <div class=\"row no-gutters\"> <div class=\"col-lg-6\"> <a class=\"portfolio-item\" href=\"#\"> <span class=\"caption\"> <span class=\"caption-content\"> <h2>Stationary</h2> <p class=\"mb-0\">A yellow pencil with envelopes on a clean, blue backdrop!</p> </span> </span> <img class=\"img-fluid\" src=\"img/portfolio-1.jpg\" alt=\"\"></a> </div> </div> </div> </section>"
-			)
-			},
-			error:function(request, status, error) {
-				alert("failed");
-			}
-		});
-		}
-	}
-</script>
-	  
-	  </script>
 
       <li class="nav-item active">
         <a class="nav-link">
@@ -138,7 +115,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
+      <div>
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -296,41 +273,53 @@
         <!-- /.container-fluid -->
         <!-- rhkdqhrehddl -->
         <div id="content">
-          <div>
-            <h2 class="normal-text">이력서 관리</h2>
-            <ul>
-              <li class="normal-text">이력서 설명1</li>
-              <li class="normal-text">이력서 설명2</li>
-              <li class="normal-text">이력서 설명3</li>
-              <li class="normal-text">이력서 설명4</li>
-              <li class="normal-text">이력서 설명5</li>
-            </ul>
-          </div>
-          <br/>
-          <div>
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 mb-0 normal-text">내 이력서 확인</h1>
-              <a href="edit_resume.html" class="d-none d-sm-inline-block btn btn-sm shadow-sm normal-text btn-hover"><i class="fas fa-plus"></i>이력서 추가</a>
-            </div>
-            <table class="normal-text">
-                <tr>
-                  <th>이력서 제목</th>
-                </tr>
-                <td>
-                  <label>
-                    <input type="radio"/>
-                    <span>이력서 제목</span>
-                  </label>
-                  <span>
-                    <span>날짜</span>>
-                    <a>등록</a>
-                  </span>
-                </td>
-              </table>
-          </div>
+			<section class="content-section" id="portfolio">
+				<div class="container">
+					<div class="content-section-heading text-center">
+						<h3 class="text-secondary mb-0">Portfolio</h3>
+						<h2 class="mb-5">Recent Projects</h2>
+					</div>
+					<div class="row no-gutters" id="portfolio_content">	
+					</div>
+				</div>
+			</section>
+	<script language = "javascript">
+	window.onload=function() {
+		$.ajax({
+			url:"http://localhost:8080/Portfolio",
+			type:"GET",
+			cache:false,
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success:function(portfolio_data){
+				$.each(portfolio_data,function(i){
+					$("#portfolio_content").append(
+						"<div class=\"col-lg-6\">" +
+							"<a class=\"portfolio-item\" href=\"#\">" +
+								"<span class=\"caption\">" +
+									"<span class=\"caption-content\">" +
+										"<h2>" + this.title + "</h2>" +
+										"<p class=\"mb-0\">" + this.content + "</p>" +
+									"</span>" +
+								"</span>" +
+								"<img class=\"img-fluid\"" + this.url + "alt=\"\">" +
+							"</a>" +
+						"</div>"
+						)
+				});
+			},
+			error:function(request, status, error) {
+				alert("failed");
+			}
+		});
+	}
+	</script>
+ 			
+		</div>
         </div>
         <!-- /rhkdqhrehddl -->
 
+      </div>
       </div>
       <!-- End of Main Content -->
 
@@ -375,14 +364,15 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../../js/CoverLetterJS/sb-admin-2.min.js"></script>
+  <script src="js/CoverLetterJS/sb-admin-2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </body>
 

@@ -29,6 +29,17 @@ public class HomeController {
         model.addAttribute("message","Hello Spring Boot thymeleaf");
         return "html/CoverLetter/CoverLetter";
     }
+    @RequestMapping("/CreatePortfolio")
+    public String CreatePortfolio(Model model){
+        model.addAttribute("message","Hello Spring Boot thymeleaf");
+        return "html/CoverLetter/CreatePortfolio";
+    }
+
+    @RequestMapping("/test")
+    public String test(Model model){
+        model.addAttribute("message","Hello Spring Boot thymeleaf");
+        return "html/CoverLetter/test";
+    }
     
     @RequestMapping("/view")
     public String view(Model model){
@@ -66,20 +77,17 @@ public class HomeController {
 	@RequestMapping(value="/Portfolio")
 	public JSONArray Portfolio() {
     	
-    	String[] name_arr = {"박 현찬", "최 영석", "이 원준", "이 주영"};
-		String[] naver_arr = {"pitcher0303@naver.com", "blackhawk737@naver.com", "rhkdqhrehddl@naver.com", "ljoy1994@naver.com"};
-		String[] google_arr = {"pitcher0303@gmail.com", "ghkseh123@gmail.com", "rhkdqhrehddl@gmail.com", "leejoy1994@naver.com"};
-		String[] git_arr = {"https://github.com/pitcher0303", "https://github.com/YeongseokChoi", "https://github.com/rhkdqhrehddl", "https://github.com/leejoy980"};
+    	String[] url_arr = {"src='img/portfolio-1.jpg'", "src='img/portfolio-2.jpg'", "src='img/portfolio-3.jpg'", "src='img/portfolio-3.jpg'"};
+		String[] title_arr = {"Stationary", "Test1", "Test2", "Test2"};
+		String[] content_arr = {"Test_Content", "Test_Content1", "Test_Content2", "Test_Content2"};
 		
 		JSONArray jsonArr = new JSONArray();
-		for(int i = 0; i < name_arr.length; i++) {
-			memberVO vo = new memberVO();
-			vo.setName(name_arr[i]);
-			vo.setNaver(naver_arr[i]);
-			vo.setGoogle(google_arr[i]);
-			vo.setGit(git_arr[i]);
-			vo.setPosition("Lead Designer");
-			vo.setUrl("../img/team/member2.jpg");
+		for(int i = 0; i < url_arr.length; i++) {
+			portfolioVO vo = new portfolioVO();
+			vo.setUrl(url_arr[i]);
+			vo.setTitle(title_arr[i]);
+			vo.setContent(content_arr[i]);
+
 			jsonArr.add(vo);
 		}
 		return jsonArr;
