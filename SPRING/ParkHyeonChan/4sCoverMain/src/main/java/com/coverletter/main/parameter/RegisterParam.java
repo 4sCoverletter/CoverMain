@@ -1,6 +1,9 @@
 package com.coverletter.main.parameter;
 
-public class RegisterParam {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class RegisterParam extends ParamObject {
 	private String userName;
 	private String userEmail;
 	private String userPassword;
@@ -30,6 +33,5 @@ public class RegisterParam {
 	public void setUserPasswordRepeat(String userPasswordRepeat) {
 		this.userPasswordRepeat = userPasswordRepeat;
 	}
-	
 	
 }
