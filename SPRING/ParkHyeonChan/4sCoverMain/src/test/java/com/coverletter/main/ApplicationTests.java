@@ -13,13 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.coverletter.main.mybatis.dao.UserDao;
+import com.coverletter.main.mybatis.mapper.TeammemberMapper;
+import com.coverletter.main.mybatis.mapper.UserMapper;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationTests {
 	@Autowired DataSource dataSource;
-	@Autowired UserDao userDao;
+	@Autowired UserMapper userMapper;
+	@Autowired TeammemberMapper teamMapper;
 	
 	@Test
 	public void dataSourceTest() {
@@ -46,6 +48,7 @@ public class ApplicationTests {
 	
 	@Test
 	public void mybatisTest() {
-		System.out.println(userDao.selectAll());
+		System.out.println(userMapper.findAll());
+		System.out.println(teamMapper.findAll());
 	}
 }

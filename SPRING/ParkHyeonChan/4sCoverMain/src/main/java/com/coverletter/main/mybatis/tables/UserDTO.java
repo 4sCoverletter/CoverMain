@@ -1,5 +1,8 @@
 package com.coverletter.main.mybatis.tables;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("UserDTO")
 public class UserDTO {
 	private String uemail;
 	private String uname;

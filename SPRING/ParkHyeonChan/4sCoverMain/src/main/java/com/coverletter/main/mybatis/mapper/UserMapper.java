@@ -1,10 +1,12 @@
 package com.coverletter.main.mybatis.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import com.coverletter.main.mybatis.tables.UserDTO;
 
 @Mapper
+@Component
 public interface UserMapper {
-	UserDTO selectAll();
+	UserDTO findAll();
 }

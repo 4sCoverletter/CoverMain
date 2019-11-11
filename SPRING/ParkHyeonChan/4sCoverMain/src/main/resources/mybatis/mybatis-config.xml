@@ -8,6 +8,7 @@
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mapper/UserMapper.xml"/>
+		<mapper resource="mybatis/mapper/TeammemberMapper.xml"/>
 		<!-- <mapper resource="mapper/TokenDTOMapper.xml"/>  -->
 	</mappers>
 </configuration>	
