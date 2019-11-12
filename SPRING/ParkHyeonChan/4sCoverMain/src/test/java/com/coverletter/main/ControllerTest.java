@@ -16,12 +16,16 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.coverletter.main.controller.APIController;
 import com.coverletter.main.parameter.RegisterParam;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ControllerTest {
 	private MockMvc mockMvc;
 	private RegisterParam registerParam;
+	private String JsonRequest;
 	
 	@MockBean
 	APIController apiController;
@@ -33,15 +37,22 @@ public class ControllerTest {
 		registerParam.setUserName("박현찬");
 		registerParam.setUserEmail("pitcher0303@gmail.com");
 		registerParam.setUserPassword("anfqud0303");
+		ObjectMapper objMapper = new ObjectMapper();
+		objMapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
+		ObjectWriter objWriter = objMapper.writer().withDefaultPrettyPrinter();
+		try {
+			JsonRequest = objWriter.writeValueAsString(registerParam);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
 	public void registerTest() throws Exception {
 		mockMvc.perform(post("/api/register")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.param("userName", "박현찬")
-				.param("userEmail", "pitcher0303@gmail.com"))
+				.content(JsonRequest))
 		.andDo(print())
-		.andExpect(status().isOk());
+		.andExpect(status().isBadRequest());
 	}
 }

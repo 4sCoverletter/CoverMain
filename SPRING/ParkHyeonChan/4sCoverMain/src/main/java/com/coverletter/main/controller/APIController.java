@@ -24,7 +24,8 @@ public class APIController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public RegisterParam register(@RequestBody RegisterParam registerParam) {
-		
+		System.out.println(registerParam);
+		//System.out.println(content);
 		return registerParam;
 	}
 }
