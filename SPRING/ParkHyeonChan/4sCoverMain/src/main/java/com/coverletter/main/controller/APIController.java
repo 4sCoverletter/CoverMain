@@ -1,6 +1,11 @@
 package com.coverletter.main.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +28,10 @@ public class APIController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public RegisterParam register(@RequestBody RegisterParam registerParam) {
-		System.out.println(registerParam);
-		//System.out.println(content);
-		return registerParam;
+	public ResponseEntity<RegisterParam> register(@RequestBody @Valid RegisterParam registerParam, Errors errors) {
+		if(errors.hasErrors()) {
+			return new ResponseEntity<>(registerParam, HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(registerParam, HttpStatus.OK);
 	}
 }

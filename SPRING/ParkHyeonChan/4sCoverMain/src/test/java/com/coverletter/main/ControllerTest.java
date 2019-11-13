@@ -1,6 +1,7 @@
 package com.coverletter.main;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -12,6 +13,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.coverletter.main.controller.APIController;
@@ -37,6 +40,7 @@ public class ControllerTest {
 		registerParam.setUserName("박현찬");
 		registerParam.setUserEmail("pitcher0303@gmail.com");
 		registerParam.setUserPassword("anfqud0303");
+		//registerParam.setUserPasswordRepeat("anfqud0303");
 		ObjectMapper objMapper = new ObjectMapper();
 		objMapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
 		ObjectWriter objWriter = objMapper.writer().withDefaultPrettyPrinter();
@@ -49,10 +53,12 @@ public class ControllerTest {
 	
 	@Test
 	public void registerTest() throws Exception {
-		mockMvc.perform(post("/api/register")
+		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/register")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
 				.content(JsonRequest))
 		.andDo(print())
-		.andExpect(status().isBadRequest());
+		.andExpect(status().isOk())
+		.andReturn();
+		
 	}
 }

@@ -1,12 +1,21 @@
 package com.coverletter.main.parameter;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.stereotype.Repository;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Repository
 public class RegisterParam extends ParamObject {
+	@NotNull
 	private String userName;
+	@NotNull
 	private String userEmail;
+	@NotNull
 	private String userPassword;
+	@NotNull
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String userPasswordRepeat;
 	
 	public String getUserName() {
