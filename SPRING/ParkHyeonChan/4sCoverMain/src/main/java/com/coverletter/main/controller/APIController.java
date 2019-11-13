@@ -3,6 +3,7 @@ package com.coverletter.main.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -16,22 +17,28 @@ import com.coverletter.main.data.Team;
 import com.coverletter.main.parameter.RegisterParam;
 import com.coverletter.main.service.TeamService;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class APIController {
-	@Autowired TeamService teamService;
-	
+	//@Autowired TeamService teamService;
+	/*
 	@RequestMapping(value = "/member", method = RequestMethod.GET)
-	public Team getMember() {
-		return teamService.getTeam();
+	public ResponseEntity<Team> getMember() {
+		return new ResponseEntity<Team>(teamService.getTeam(), HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	*/
+	@RequestMapping(value = "/member", method = RequestMethod.GET)
+	public String getMember() {
+		return "Get Members";
+	}
+	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 	public ResponseEntity<RegisterParam> register(@RequestBody @Valid RegisterParam registerParam, Errors errors) {
 		if(errors.hasErrors()) {
 			return new ResponseEntity<>(registerParam, HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(registerParam, HttpStatus.OK);
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Location", "/api/register");
+		return new ResponseEntity<>(registerParam, headers, HttpStatus.OK);
 	}
 }
