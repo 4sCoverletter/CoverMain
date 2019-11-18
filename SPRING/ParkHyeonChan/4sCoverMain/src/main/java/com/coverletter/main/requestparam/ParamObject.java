@@ -1,4 +1,4 @@
-package com.coverletter.main.parameter;
+package com.coverletter.main.requestparam;
 
 import java.lang.reflect.Field;
 

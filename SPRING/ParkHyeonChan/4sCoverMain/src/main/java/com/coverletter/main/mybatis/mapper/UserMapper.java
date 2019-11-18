@@ -9,4 +9,5 @@ import com.coverletter.main.mybatis.tables.UserDTO;
 @Component
 public interface UserMapper {
 	UserDTO findAll();
+	UserDTO findByEmail(String uemail);
 }

@@ -7,4 +7,7 @@
 	<select id="findAll" resultType="UserDTO">
 		select * from user
 	</select>
+	<select id="findByEmail" parameterType="String" resultType="UserDTO">
+		select * from user where uemail = #{uemail}
+	</select>
 </mapper>

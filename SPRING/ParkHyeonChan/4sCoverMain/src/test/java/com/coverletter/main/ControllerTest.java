@@ -10,15 +10,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.coverletter.main.controller.APIController;
-import com.coverletter.main.parameter.RegisterParam;
+import com.coverletter.main.requestparam.RegisterParam;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -40,7 +38,7 @@ public class ControllerTest {
 		registerParam.setUserName("박현찬");
 		registerParam.setUserEmail("pitcher0303@gmail.com");
 		registerParam.setUserPassword("anfqud0303");
-		registerParam.setUserPasswordRepeat("anfqud0303");
+		//registerParam.setUserPasswordRepeat("anfqud0303");
 		ObjectMapper objMapper = new ObjectMapper();
 		objMapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
 		ObjectWriter objWriter = objMapper.writer().withDefaultPrettyPrinter();

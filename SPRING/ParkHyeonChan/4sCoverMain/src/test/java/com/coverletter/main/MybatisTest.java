@@ -18,7 +18,7 @@ import com.coverletter.main.mybatis.mapper.UserMapper;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTests {
+public class MybatisTest {
 	@Autowired DataSource dataSource;
 	@Autowired UserMapper userMapper;
 	@Autowired TeammemberMapper teamMapper;
@@ -49,6 +49,7 @@ public class ApplicationTests {
 	@Test
 	public void mybatisTest() {
 		System.out.println(userMapper.findAll());
+		System.out.println(userMapper.findByEmail("pitcher0303@gmail.com"));
 		System.out.println(teamMapper.findAll());
 	}
 }
