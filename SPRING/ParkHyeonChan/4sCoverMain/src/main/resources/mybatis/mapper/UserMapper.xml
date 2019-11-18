@@ -10,4 +10,10 @@
 	<select id="findByEmail" parameterType="String" resultType="UserDTO">
 		select * from user where uemail = #{uemail}
 	</select>
+	<insert id="insertUser" parameterType="UserDTO">
+	<![CDATA[
+		insert into user(uemail, uname, upassword, tid)
+		Values (#{uemail}, #{uname}, #{upassword}, #{tid})
+	]]>
+	</insert>
 </mapper>
