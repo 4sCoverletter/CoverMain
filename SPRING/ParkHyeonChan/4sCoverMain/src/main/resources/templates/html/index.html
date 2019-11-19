@@ -36,13 +36,13 @@
 <script language = "javascript">
 	window.onload=function() {
 		$.ajax({
-			url:"http://localhost:8090/api/member",
+			url:"http://localhost:8888/api/member",
 			type:"GET",
 			cache:false,
 			dataType:"json",
 			contentType:"application/json; charset=UTF-8",
 			success:function(team_data){
-				team_data.teams.forEach(function(team){
+				team_data.members.forEach(function(team){
 					//div 생성
 					var $section = $('<div/>', {
 						class : 'col-sm-3'

@@ -1,12 +1,12 @@
-package com.coverletter.main.data;
+package com.coverletter.main.mybatis.tables;
 
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.type.Alias;
 
-@Repository
-public class TeamMember {
+@Alias("TeammemberDTO")
+public class TeamMemberDTO {
 	private String name;
-	private String n_email;
-	private String g_email;
+	private String email_n;
+	private String email_g;
 	private String position;
 	private String github;
 	private String imgsrc;
@@ -16,17 +16,18 @@ public class TeamMember {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getN_email() {
-		return n_email;
+	
+	public String getEmail_n() {
+		return email_n;
 	}
-	public void setN_email(String n_email) {
-		this.n_email = n_email;
+	public void setEmail_n(String email_n) {
+		this.email_n = email_n;
 	}
-	public String getG_email() {
-		return g_email;
+	public String getEmail_g() {
+		return email_g;
 	}
-	public void setG_email(String g_email) {
-		this.g_email = g_email;
+	public void setEmail_g(String email_g) {
+		this.email_g = email_g;
 	}
 	public String getPosition() {
 		return position;
