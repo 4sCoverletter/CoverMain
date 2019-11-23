@@ -2,14 +2,21 @@ package com.tuyano.springboot;
 
 
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class HomeController {
@@ -123,5 +130,16 @@ public class HomeController {
     
     
 		return vo;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String upload(MultipartFile[] filesTemp) {
+    	
+    	System.out.println("filesCount : " + filesTemp.length);
+    	List<MultipartFile> value = new ArrayList<>();
+    	for(MultipartFile file : filesTemp)
+    		value.add(file);
+		return "success";
     }
 }
