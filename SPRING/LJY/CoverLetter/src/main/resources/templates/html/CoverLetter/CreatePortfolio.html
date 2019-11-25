@@ -387,11 +387,11 @@
 
 <script type="text/javascript">
 	function upload(){
-    var form = $('#FILE_FORM')[0];
+	$("#input_img")[0].filesTemp.__proto__ = FileList.prototype
+    var form = $('#MultiUpload')[0];
     var formData = new FormData(form);
-    formData.append("fileObj", $("#FILE_TAG")[0].files[0]);
-    formData.append("fileObj2", $("#FILE_TAG2")[0].files[0]);
-
+    formData.append("fileObj", $("#input_img")[0].filesTemp);
+    
     $.ajax({
         url: '',
                 processData: false,
@@ -415,7 +415,8 @@
     	
     function handleImgFileSelect(e) {
     	console.log("태그 fileList");
-    	console.log($("#input_img")[0].files);    	var imgTag = $("#input_img")[0];
+    	console.log($("#input_img")[0].files);
+		var imgTag = $("#input_img")[0];
 
     	var files = e.target.files;
     	if(imgTag.filesTemp == undefined) {
