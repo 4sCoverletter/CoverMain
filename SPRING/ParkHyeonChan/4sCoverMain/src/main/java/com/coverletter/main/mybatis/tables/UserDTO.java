@@ -8,6 +8,11 @@ public class UserDTO {
 	private String uname;
 	private String upassword;
 	private String tid;
+	
+	public UserDTO() {
+		this.tid = "0";
+	}
+	
 	public String getUemail() {
 		return uemail;
 	}

@@ -34,7 +34,6 @@ public class UserService {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println("암호 동일여부 : " + passEncoder.matches(param.getUserPasswordRepeat(), encPassword));
 		}
 	}
 }

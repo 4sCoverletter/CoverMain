@@ -1,7 +1,11 @@
 package com.coverletter.main;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -14,17 +18,22 @@ import javax.mail.internet.MimeMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Template;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MailSendTest {
 	@Autowired
 	private JavaMailSender mailSender;
+	@Autowired
+	private TemplateEngine engine;
 	
 	private String smtp_user = "pitcher0303@naver.com";
 	private String smtp_password = "anfqud0303@";
@@ -91,5 +100,45 @@ public class MailSendTest {
 			}
 		};
 		mailSender.send(preparator);
+	}
+	
+	@Test
+	public void readTemplateTest() {
+		Context ctx = new Context(Locale.US);
+		String content = engine.process("/email/signUp_EmailVerify", ctx);
+		System.out.println(content);
+	}
+	
+	@Test
+	public void randomKeyTest() throws NoSuchAlgorithmException {
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+		StringBuffer temp = new StringBuffer();
+		Random rnd = new Random();
+		for(int i = 0; i < 20; i++) {
+			int key = rnd.nextInt(3);
+			switch (key) {
+			case 0:
+				temp.append((char) (int)(rnd.nextInt(26) + 97));
+				break;
+			case 1:
+				temp.append((char) (int)(rnd.nextInt(26) + 65));
+				break;
+			case 2:
+				temp.append((char) (int)(rnd.nextInt(10)));
+				break;
+			default:
+				break;
+			}
+		}
+		md.update(temp.toString().getBytes());
+		System.out.println(bytesToHexa(md.digest()).length());
+		System.out.println(bytesToHexa(md.digest()));
+	}
+	public static String bytesToHexa(byte[] bytes) {
+		StringBuilder builder = new StringBuilder();
+		for(byte b : bytes) {
+			builder.append(String.format("%02x", b));
+		}
+		return builder.toString();
 	}
 }

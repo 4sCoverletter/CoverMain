@@ -11,25 +11,25 @@ import org.springframework.web.servlet.ModelAndView;
 public class FormController {
 	@RequestMapping(value = "/index")
 	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("index");
+		mav.setViewName("html/index");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/register")
 	public ModelAndView register(ModelAndView mav) {
-		mav.setViewName("register");
+		mav.setViewName("html/register");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/login")
 	public ModelAndView login(ModelAndView mav) {
-		mav.setViewName("login");
+		mav.setViewName("html/login");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/forgot_password")
 	public ModelAndView forgot_password(ModelAndView mav) {
-		mav.setViewName("forgot-password");
+		mav.setViewName("html/forgot-password");
 		return mav;
 	}
 }
