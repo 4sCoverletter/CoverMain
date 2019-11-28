@@ -31,11 +31,12 @@
 
 <body id="page-top">
 
-  <!-- Header -->
+  <div id="content" style="margin:10% 10% 10% 10%;">
+			<!-- Header -->
   <header class="masthead" id="main_div">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Title</h1>
+        <h1 class="mx-auto my-0 text-uppercase" id="title">CoverLetter Project</h1>
       </div>
     </div>
   </header>
@@ -51,94 +52,78 @@
         <h2 class="my-5 h2">프로젝트 세부 사항</h2>
     
         <!-- Extended material form grid -->
-        <form>
+        
           <!-- Grid row -->
-          <div class="form-row">
-            <!-- Grid column -->
-            <div class="col-md-8">
-              <!-- Material input -->
-              <div class="md-form form-group">
-                <input type="email" class="form-control" id="inputEmail4MD" placeholder="Project">
-                <label for="inputEmail4MD">Title</label>
-              </div>
-            </div>
-            <!-- Grid column -->
-    
-            <!-- Grid column -->
-            <div class="col-md-4">
-              <!-- Material input -->
-              <div class="md-form form-group">
-                <input type="password" class="form-control" id="inputPassword4MD" placeholder="DD">
-                <label for="inputPassword4MD">Term</label>
-              </div>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-    
-          <!-- Grid row -->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-4">
-              <!-- Material input -->
-              <div class="md-form form-group">
-                <input type="text" class="form-control" id="inputAddressMD" placeholder="Number">
-                <label for="inputAddressMD">Number of people</label>
-              </div>
-			</div>
-			<div class="col-md-4">
-              <!-- Material input -->
-              <div class="md-form form-group">
-                <input type="text" class="form-control" id="inputAddress2MD" placeholder="Leader Designer">
-                <label for="inputAddress2MD">Work</label>
-              </div>
-			</div>
-			<div class="col-md-4">
-              <!-- Material input -->
-			  <div class="md-form form-group">
-				<input type="text" class="form-control" id="inputAddress2MD" placeholder="C, JAVA...">
-				<label for="inputAddress2MD">Skill</label>
-			  </div>
-			</div>
-		  </div>
+        <div class="row" style="margin-bottom:10px;">
 
-          
-          <div class="form-group">
-            <label for="example4">Content</label>
-            <textarea type="text" class="form-control" id="example4" style="height:400px;" placeholder="내용 입력..."></textarea>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-laptop text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Skill</h4>
+              <hr class="my-4">
+              <h5 class="text-black-50" id="skill">Java, JavaScript, Spring</h5>
+            </div>
           </div>
+        </div>
+
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-user-cog text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Work</h4>
+              <hr class="my-4">
+              <h5 class="text-black-50" id="work">Portfolio Part</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-user-clock text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Term</h4>
+              <hr class="my-4">
+              <h5 class="text-black-50" id="term">2019-07 ~ 2019-12</h5>
+            </div>
+          </div>
+        </div>
+		
+		</div>
+		
+		<div class="row" style="margin-bottom:20px;">
+		
+		<div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-people-carry text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Number of people</h4>
+              <hr class="my-4">
+              <h5 class="text-black-50" id="num">3</h5>
+            </div>
+          </div>
+        </div>
+        </div>
+		
           <!-- Grid row -->
-          <button type="submit" class="btn btn-primary btn-md">Sign in</button>
-        </form>
-        <!-- Extended material form grid -->
+		<div class="form-group" style="margin-bottom:20px;">
+            <label for="example4">Content</label>
+            <p class="text-white-50" id="contentText">여기에 프로젝트에 관한 설명과 내용 진행 과정 등을 쓰게됩니다. 본인이 원하는데로 자유롭게 써주세요~~</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
     
-      </div>
         </div>
       </div>
-      <img src="img/portfolio/ipad.png" class="img-fluid" alt="">
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-    <div class="container">
-	
-	  <div align="right">
-	    <input type="file" id="input_img" style="width: 0; height: 0;"/>
-	       <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="width: fit-content;" align="right" th:onClick="|javascript:portfolio()|">이미지 추가</a>
-	  </div>
-	  
-	  <div id="portfolio_div" style="margin: 0px 20% 0px 20%">
-	  </div>
-	  
-    </div>
-  </section>
 
   <!-- Signup Section -->
-  <div id="myCarousel" class="carousel slide" style="margin: 0px 20% 0px 20%" data-ride="carousel"> 
+  <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
 	<div class="carousel-inner"  id="slide_img">
 		<div class="item active"> 
-			<img src="img/portfolio/ipad.png" style="width:100%; height:300px" alt="First slide">
+			<img src="img/portfolio/ipad.png" style="width:100%; height:700px" alt="First slide">
 		</div>
 	</div>
 	
@@ -147,44 +132,56 @@
 	<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
 </div>
 
-<script type="text/javascript">
-    
-    function portfolio(){
-    	$("input:file").click();
-    }
-    
-    var sel_file;
-    
-    $(document).ready(function() {
-    	$('#input_img').on("change", handleImgFileSelect);
-    });
-    	
-    function handleImgFileSelect(e) {
-    	var files = e.target.files;
-    	var filesArr = Array.prototype.slice.call(files);
-    	
-    	filesArr.forEach(function(f) {
-    		if(!f.type.match("image.*")){
-    			alert("확장자는 이미지 확장자만 가능합니다.");
-    			return;
-    		} 
-    		sel_file = f;
-    		
-    		var reader = new FileReader();
-    		reader.onload = function(e) {
-				$("#portfolio_div").append("<img src=\"" + e.target.result + "\" style=\"width:100%; height:500px\"/>");
-				$("#slide_img").append(
-				"<div class=\"item\">" +
-					"<img src=\"" + e.target.result + "\" style=\"width:100%; height:300px\" alt=\"Second slide\">" +
-				"</div>"
-				);
+<script language = "javascript">
+	window.onload=function() {
+		$.ajax({
+			url:"http://localhost:8080/Portfolio",
+			type:"GET",
+			cache:false,
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success:function(portfolio_data){
+				console.dir(portfolio_data);
+				$("#slide_img").html(
+						"<div class=\"item active\">" +
+							"<img src=\"" + portfolio_data.titleUrl + "\" style=\"width:100%; height:700px\" alt=\"First slide\">" +
+						"</div>"
+					);
+					
+				document.getElementById('main_div').setAttribute('style',"background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url('" + portfolio_data.titleUrl + "'); background-repeat: no-repeat; background-size: cover; background-position: center; position: relative; width: 100%; height: auto; min-height: 35rem; padding: 15rem 0;");
 				
-    		}
-    		reader.readAsDataURL(f);
-    		
-    	})
-    }
-</script>
+				$("#title").html(
+						portfolio_data.title
+						);
+				$("#skill").html(
+						portfolio_data.skill
+						);
+				$("#work").html(
+						portfolio_data.work
+						);
+				$("#term").html(
+						portfolio_data.term
+						);
+				$("#num").html(
+						portfolio_data.num
+						);
+				$("#contentText").html(
+						portfolio_data.content
+						);
+				portfolio_data.url.forEach(function(e){
+					$("#slide_img").append(
+						"<div class=\"item\">" +
+							"<img src=\"" + e + "\" style=\"width:100%; height:700px\" alt=\"Second slide\">" +
+						"</div>"
+					);
+				});
+			},
+			error:function(request, status, error) {
+				alert("failed");
+			}
+		});
+	}
+	</script>
 </div>
 
 

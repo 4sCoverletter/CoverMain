@@ -2,12 +2,21 @@ package com.tuyano.springboot;
 
 
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.simple.JSONArray;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class HomeController {
@@ -33,6 +42,11 @@ public class HomeController {
     public String CreatePortfolio(Model model){
         model.addAttribute("message","Hello Spring Boot thymeleaf");
         return "html/CoverLetter/CreatePortfolio";
+    }
+    @RequestMapping("/CreatePortfolio3")
+    public String CreatePortfolio3(Model model){
+        model.addAttribute("message","Hello Spring Boot thymeleaf");
+        return "html/CoverLetter/CreatePortfolio3";
     }
 
     @RequestMapping("/test")
@@ -74,8 +88,8 @@ public class HomeController {
     
     @SuppressWarnings("unchecked")
 	@ResponseBody
-	@RequestMapping(value="/Portfolio")
-	public JSONArray Portfolio() {
+	@RequestMapping(value="/Portfolios")
+	public JSONArray Portfolios() {
     	
     	String[] url_arr = {"src='img/portfolio-1.jpg'", "src='img/portfolio-2.jpg'", "src='img/portfolio-3.jpg'", "src='img/portfolio-3.jpg'"};
 		String[] title_arr = {"Stationary", "Test1", "Test2", "Test2"};
@@ -84,12 +98,48 @@ public class HomeController {
 		JSONArray jsonArr = new JSONArray();
 		for(int i = 0; i < url_arr.length; i++) {
 			portfolioVO vo = new portfolioVO();
-			vo.setUrl(url_arr[i]);
+			vo.setTitleUrl(url_arr[i]);
 			vo.setTitle(title_arr[i]);
 			vo.setContent(content_arr[i]);
 
 			jsonArr.add(vo);
 		}
 		return jsonArr;
+    }
+    
+    @SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value="/Portfolio")
+	public portfolioVO Portfolio() {
+    	
+    	ArrayList<String> url = new ArrayList<>();
+    	url.add("img/portfolio-1.jpg");
+    	url.add("img/portfolio-2.jpg");
+    	url.add("img/portfolio-3.jpg");
+    	
+    	portfolioVO vo = new portfolioVO();
+    	vo.setContent("Test Content");
+    	vo.setTitle("Test Title");
+    	vo.setSkill("Test Skill");
+    	vo.setNum(4);
+    	vo.setTerm("한달");
+    	vo.setTitleUrl("img/portfolio-2.jpg");
+    	vo.setWork("Lead Designer");
+    	vo.setUrl(url);
+    	
+    
+    
+		return vo;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String upload(MultipartFile[] filesTemp) {
+    	
+    	System.out.println("filesCount : " + filesTemp.length);
+    	List<MultipartFile> value = new ArrayList<>();
+    	for(MultipartFile file : filesTemp)
+    		value.add(file);
+		return "success";
     }
 }

@@ -286,7 +286,7 @@
 	<script language = "javascript">
 	window.onload=function() {
 		$.ajax({
-			url:"http://localhost:8080/Portfolio",
+			url:"http://localhost:8080/Portfolios",
 			type:"GET",
 			cache:false,
 			dataType:"json",
@@ -302,7 +302,7 @@
 										"<p class=\"mb-0\">" + this.content + "</p>" +
 									"</span>" +
 								"</span>" +
-								"<img class=\"img-fluid\"" + this.url + "alt=\"\">" +
+								"<img class=\"img-fluid\"" + this.titleUrl + "alt=\"\">" +
 							"</a>" +
 						"</div>"
 						)
